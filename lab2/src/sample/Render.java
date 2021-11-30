@@ -49,22 +49,24 @@ public class Render {
         int x = 0, y = 0;
         float delta = 0;
 
-        while (2 * a * x < 1) {
+        while (-2 * a * x < 1) {
+            System.out.println(delta);
             setBlackPoint(new Point2D(x, y)); //ставим точку с координатами (x,y)
-            if (delta < 0) delta += a * (2 * x + 1); //положительное приращение
+            if (delta < 0) delta += a * (2 * -x + 1); //положительное приращение
             else { //отрицательное приращение
-                delta += a * (2 * x + 1) - 1;
+                delta += a * (2 * -x + 1) - 1;
                 y++;
             }
-            x++;
+            x--;
         }
-
+        System.out.println("-------------------------------");
         while (y < canvas.getHeight() / 2) {
+            System.out.println(delta);
             setBlackPoint(new Point2D(x, y));    //ставим точку с координатами (x,y)
             if (delta >= 0) delta += -1;    //отрицательное приращение
             else { //положительное приращение
-                delta += a * (2 * x + 1) - 1;
-                x++;
+                delta += a * (2 * -x + 1) - 1;
+                x--;
             }
             y++;
         }
@@ -75,7 +77,8 @@ public class Render {
         int x = 0, y = 0;
         float delta = 0;
 
-        while (3 * a * pow(y, 2) < 1) {
+/*        while (3 * a * pow(y, 2) < 1) {
+
             setBlackPoint(new Point2D(x, y)); // ставим точку с координатами (x,y)
             if (delta < 0) delta += 3 * a * pow(y, 2) + 3 * a * y + a; // положительное приращение
             else { // отрицательное приращение
@@ -83,9 +86,10 @@ public class Render {
                 x++;
             }
             y++;
-        }
+        }*/
 
         while (x < canvas.getWidth() / 2) {
+
             setBlackPoint(new Point2D(x, y));    //ставим точку с координатами (x,y)
             if (delta >= 0) delta += -1;    //отрицательное приращение
             else { //положительное приращение
