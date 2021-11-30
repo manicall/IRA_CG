@@ -19,19 +19,11 @@ namespace TASK2
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Graphics g;    //  графический объект — некий холст
-            Bitmap buf;    //  буфер для Bitmap-изображения
-
-            buf = new Bitmap(pictureBox1.Width, pictureBox1.Height);  // с размерами
-            for (int i = 0; i < 200; i++)
+            Bitmap newImage = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            using (Graphics graphics = Graphics.FromImage(newImage))
             {
-                for (int j = 0; j < 200; j++)
-                {
-                    buf.SetPixel(i, j, Color.Black);
-                }
+                graphics.DrawImage(pictureBox1.Image, 0, 0);
             }
-            
-            g = Graphics.FromImage(buf);   // инициализация g
         }
     }
 }
